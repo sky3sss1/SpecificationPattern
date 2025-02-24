@@ -2,12 +2,10 @@
 
 public class AddOrderCommand : IRequest
 {
-    public AddOrderCommand(Order order, IReadOnlyList<OrderItem> orderItems)
+    public AddOrderCommand(Order order)
     {
         Order = order;
-        OrderItems = orderItems;
     }
 
     public Order Order { get; set; }
-    public IReadOnlyList<OrderItem> OrderItems { get; set; }    
 }

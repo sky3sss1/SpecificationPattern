@@ -1,4 +1,7 @@
-﻿namespace Web.API.Controllers;
+﻿using Application.Features.Orders.Commands;
+using Web.API.Models;
+
+namespace Web.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
@@ -17,5 +20,13 @@ public class OrderController : ControllerBase
     {
         var result = await _mediator.Send(new GetRecentOrdersQuery());
         return Ok(result);
+    }
+
+    [HttpPost]
+    [Route("[action]")]
+    public async Task<IActionResult> AddOrderWithOrderItems(AddOrderAndOrderItemsModel model)
+    {
+        await _mediator.Send(model.ToCommand());
+        return Ok();
     }
 }

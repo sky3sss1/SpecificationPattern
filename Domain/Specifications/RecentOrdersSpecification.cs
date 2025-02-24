@@ -2,5 +2,5 @@
 
 public class RecentOrdersSpecification : BaseSpecification<Order>
 {
-    public RecentOrdersSpecification() : base(c => c.CreateData >= DateTime.UtcNow.AddDays(-7)) { }
+    public RecentOrdersSpecification() : base(c => c.CreateDate >= DateTime.UtcNow.AddDays(-7)) { }
 }

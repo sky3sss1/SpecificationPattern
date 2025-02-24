@@ -4,3 +4,4 @@ global using Domain.Entities;
 global using Microsoft.EntityFrameworkCore;
 global using System.Reflection;
 global using Domain.Specifications;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;

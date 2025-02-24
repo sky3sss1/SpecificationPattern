@@ -11,6 +11,8 @@ public class GetRecentOrdersQueryHandler : IRequestHandler<GetRecentOrdersQuery,
 
     public async Task<IReadOnlyList<Order>> Handle(GetRecentOrdersQuery request, CancellationToken cancellationToken)
     {
-        return await _orderRepository.GetOrdersAsync(new RecentOrdersSpecification());
+        var result = await _orderRepository.GetOrdersAsync(new RecentOrdersSpecification());
+        var result2 = await _orderRepository.GetOrdersAsync(new GetNewOrdersWithOrderItemsSpecification());
+        return result;
     }
 }

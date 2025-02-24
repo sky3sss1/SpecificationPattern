@@ -1,5 +1,4 @@
-﻿
-namespace Application.Features.Orders.Commands;
+﻿namespace Application.Features.Orders.Commands;
 
 public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>
 {
@@ -12,7 +11,6 @@ public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand>
 
     public async Task Handle(AddOrderCommand request, CancellationToken cancellationToken)
     {
-        await _unitOfWork.OrderItems.AddRangeAsync(request.OrderItems.ToArray());
         await _unitOfWork.Orders.AddAsync(request.Order);
         await _unitOfWork.SaveChangesAsync();
     }

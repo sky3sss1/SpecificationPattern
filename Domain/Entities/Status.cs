@@ -2,6 +2,7 @@
 
 public class Status : Entity
 {
+    public Status() { }
     public Status(string name, bool isDeleted)
     {
         Name = name;
@@ -10,4 +11,8 @@ public class Status : Entity
 
     public string Name { get; set; }
     public bool IsDeleted { get; set; }
+
+    #region virtuals
+    public virtual ICollection<Order> Orders { get; set; } = [];
+    #endregion
 }
